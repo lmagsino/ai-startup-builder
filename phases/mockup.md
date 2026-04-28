@@ -35,12 +35,15 @@ Warns before generating mockups (see Token warning section).
 ## Context to load
 
 Check the current directory for:
-- `project-plan.md` — load MVP features, target audience, problem/solution
+- `project-plan.md` — load MVP features, target audience, problem/solution, **BRAND section (name, domain, tagline, positioning)**
 - `idea-scorecard.md` — load idea type, one-liner
 
 If neither found, ask:
-"What are the 3-5 MVP features and who is the primary user?
+"What are the 3-5 MVP features and who is the primary user? What's the product called?
 Also — 3 words that describe the design feel, or a peg app you admire."
+
+If `project-plan.md` exists but the BRAND section is missing, run /plan's naming
+substep first — don't design around `[Project Name]`.
 
 If files found but design taste is missing, ask:
 "One question before we design: 3 words or a peg app for the design direction?
@@ -76,6 +79,8 @@ Ask before generating.
 1. CONTEXT RECAP
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    DESIGN
+   Name       → [from project-plan.md BRAND]
+   Tagline    → [from project-plan.md BRAND]
    Idea       → [one line]
    MVP Scope  → [3-5 features]
    Audience   → [primary user]
@@ -245,7 +250,7 @@ One file per screen. Named by screen: `landing.html`, `core-feature.html`, `onbo
 - **Never generate mockups without the token warning first**
 - **Never design outside MVP scope** — if a feature isn't in `project-plan.md`, don't mock it up
 - **Mobile-first always** — desktop layout is optional, mobile is required
-- **Real copy, not lorem ipsum** — use the product name, real feature names, representative content
+- **Real copy, not lorem ipsum** — use the actual product name + tagline from `project-plan.md` BRAND section, real feature names, representative content. Never use `[Project Name]` as a placeholder in mockups.
 - **Design maturity must match recommendation** — don't produce world-class UI for a day-1 MVP
 - If the peg app is clearly inappropriate for the idea type, say so before designing
 

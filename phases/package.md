@@ -33,7 +33,7 @@ Warns before generating (see Token warning section).
 
 Check the current directory for all prior artifacts:
 - `idea-scorecard.md` → idea one-liner, type, score, verdict, risks
-- `project-plan.md` → MVP features, stack preference, audience, GTM, pricing
+- `project-plan.md` → **BRAND (name, domain, tagline, positioning)**, MVP features, stack preference, audience, GTM, pricing
 - `design-system.md` → design tokens
 - `user-personas.md` → persona names and roles
 - `user-flows.md` → flow names
@@ -42,7 +42,8 @@ Check the current directory for all prior artifacts:
 Load whatever exists. For missing context, ask inline before generating:
 
 If `idea-scorecard.md` missing → "What's the idea one-liner and score?"
-If `project-plan.md` missing → "What are the MVP features and your preferred stack?"
+If `project-plan.md` missing → "What's the product name, MVP features, and your preferred stack?"
+If `project-plan.md` exists but BRAND missing → "Run /plan's naming substep first — don't ship a tech-spec with [Project Name] placeholders."
 If design files missing → "Has design been approved? If not, run /mockup first — or confirm to proceed without design assets."
 
 Always ask before generating (token warning below).
@@ -75,6 +76,8 @@ Ask before generating.
 1. CONTEXT RECAP
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    BUILD PACKAGE
+   Name         → [from project-plan.md BRAND]
+   Domain       → [from project-plan.md BRAND]
    Idea         → [one line]
    Score        → [X]/100 — [VERDICT]
    MVP Features → [list]
@@ -460,4 +463,5 @@ Confidence: [low/medium/high]
 - **AI-TECH-LEAD.md must be complete** — no TBD fields without a note explaining why
 - **Never invent features** — only what's in `project-plan.md` goes into the spec
 - **Stack recommendation must include free tier limits** if recommending hosted services
+- **Never ship `[Project Name]` placeholders** — read the actual name from `project-plan.md` BRAND section. If missing, route the founder back to /plan's naming substep before generating.
 - If prior phase artifacts are missing and the user confirms to proceed anyway, note the gaps in `AI-TECH-LEAD.md` open questions
