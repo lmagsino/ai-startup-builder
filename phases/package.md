@@ -340,6 +340,80 @@ EPIC 3 — FUTURE
 
 12-slide structure with filled-in content for each slide based on all prior artifacts.
 
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PITCH DECK — [Project Name]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SLIDE 1 — COVER
+Name      → [Product Name]
+Tagline   → [what it does, one line]
+Sub-tag   → [who it's for]
+
+SLIDE 2 — PROBLEM
+Headline  → [pain in one punchy line]
+Point 1   → [specific pain]
+Point 2   → [specific pain]
+Point 3   → [specific pain]
+Story     → [relatable 1-sentence example]
+
+SLIDE 3 — SOLUTION
+Headline  → [solution in one punchy line]
+Point 1   → [solves pain 1]
+Point 2   → [solves pain 2]
+Point 3   → [solves pain 3]
+
+SLIDE 4 — HOW IT WORKS
+Step 1    → [action] → [outcome]
+Step 2    → [action] → [outcome]
+Step 3    → [action] → [outcome]
+
+SLIDE 5 — MARKET SIZE
+TAM → $[X]B — [total addressable]
+SAM → $[X]B — [serviceable]
+SOM → $[X]M — [realistic 3yr target]
+Source → [where numbers come from]
+
+SLIDE 6 — BUSINESS MODEL
+Model     → [subscription/usage/freemium/etc]
+Price     → [price point]
+Unit Econ → [LTV / CAC rough estimate]
+
+SLIDE 7 — TRACTION
+[If none] Validation → [what you've done to validate]
+           Signal    → [waitlist/interviews/LOI]
+[If some] Metric 1  → [number]
+           Metric 2  → [number]
+
+SLIDE 8 — COMPETITIVE LANDSCAPE
+X-axis    → [dimension: e.g. cheap → expensive]
+Y-axis    → [dimension: e.g. generic → specialized]
+Us        → [where we sit]
+Them      → [where competitors sit]
+We win by → [our edge in one line]
+
+SLIDE 9 — ROADMAP
+MVP     → [timeframe] — [key milestone]
+V2      → [timeframe] — [key milestone]
+Future  → [timeframe] — [key milestone]
+
+SLIDE 10 — TEAM
+[Name] → [role + relevant background]
+Why us → [founder-market fit, one sentence]
+
+SLIDE 11 — THE ASK
+Raising  → $[amount]
+Use of funds
+  [X]% → [purpose]
+  [X]% → [purpose]
+Runway   → [X months]
+
+SLIDE 12 — CONTACT
+[Name] / [Email] / [URL]
+[CTA]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
 ## Completion output
 
 ```

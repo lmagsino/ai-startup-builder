@@ -1404,11 +1404,11 @@ YOU HAVE AN IDEA
 ## CONTRIBUTING
 
 **You can contribute:**
-- New frameworks → `knowledge/challenge/frameworks/`
-- New playbooks → `knowledge/challenge/playbooks/`
-- New roadmap patterns → `knowledge/market/roadmap-patterns/`
-- Real scorecards → `knowledge/community/submitted-scorecards.md`
-- Pivot and success stories → `knowledge/community/`
+- New frameworks → add to `phases/score.md` under `### Apply Framework`
+- New roadmap patterns → add to `phases/plan.md` under `### Select Roadmap Pattern`
+- Scoring weight adjustments → edit the SCORE section in `phases/score.md`
+- Stack defaults → edit `### Stack Decisions` in this file
+- Real scorecards, pivot stories → open a PR with examples in the README
 
 **Every contribution must include:**
 ```

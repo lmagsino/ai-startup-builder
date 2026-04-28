@@ -6,18 +6,16 @@ How to tune ai-startup-builder for your specific context.
 
 ## Adjusting the scoring weights
 
-The default weights reflect a general-purpose startup. Edit `ai-startup-builder.md` to shift emphasis.
+The scoring weights live in `phases/score.md`. Edit the SCORE section to shift emphasis.
 
-```markdown
-| Dimension             | Weight | Score | Weighted |
-|---|---|---|---|
-| Market Size           | 15%    | /10   |          |
-| Competition Density   | 15%    | /10   |          |
-| Founder-Market Fit    | 15%    | /10   |          |
-| Technical Feasibility | 10%    | /10   |          |
-| Monetization Clarity  | 20%    | /10   |          |
-| Time to First Revenue | 15%    | /10   |          |
-| Unfair Advantage      | 10%    | /10   |          |
+```
+Market Size (15%)
+Competition Density (15%)
+Founder-Market Fit (15%)
+Technical Feasibility (10%)
+Monetization Clarity (20%)
+Time to First Revenue (15%)
+Unfair Advantage (10%)
 ```
 
 **Example: B2B SaaS context** — raise Monetization Clarity and Time to First Revenue, lower Consumer signals.
@@ -28,7 +26,7 @@ The default weights reflect a general-purpose startup. Edit `ai-startup-builder.
 
 ## Adding a custom framework
 
-Add to the `## PHASE 1 — CHALLENGE` section under `### Step 2 — Apply Framework`:
+Add to the `### Apply Framework` step in `phases/score.md`:
 
 ```markdown
 **Your Framework Name** ← when to use it
@@ -51,7 +49,7 @@ Include the contribution header:
 
 ## Scoping to a specific market
 
-For market-specific versions (e.g. Philippines, Southeast Asia, solo indie hackers), add a preamble to `ai-startup-builder.md`:
+For market-specific versions (e.g. Philippines, Southeast Asia, solo indie hackers), add a preamble to the relevant phase files. Example for `phases/score.md`:
 
 ```markdown
 ## MARKET CONTEXT
@@ -67,16 +65,24 @@ This version is scoped to the Philippine market.
 
 ## Changing the default stack suggestions
 
-Edit the `### Stack Decisions` section in the Knowledge Base to reflect your preferred defaults.
+Edit the `### Stack Decisions` section in `ai-startup-builder.md` to reflect your preferred defaults. This affects stack recommendations produced by `/package`.
 
 ---
 
-## Skipping phases
+## Skipping skills
 
-ai-startup-builder enforces phase gates by default. To skip to a specific phase, tell it at the start:
+Each skill is standalone — just run the one you need. If prior files don't exist, the skill asks inline for what it needs.
 
 ```
-"I already have a validated idea. Skip Phase 1 and start at Phase 2."
+/score
+# No idea-scorecard.md found
+# → "What's your idea?"
+# → [scores it directly]
 ```
 
-It will ask for the minimum context it needs (idea type, one-liner, top risks) before proceeding.
+```
+/plan
+# No idea-scorecard.md found
+# → "What's the idea and score from /score?
+#    (or tell me the idea and I'll plan without a score)"
+```

@@ -30,21 +30,23 @@ Choose global (all projects) or local (current project only).
 
 ### Use
 
-```
-/ai-startup-builder
-```
+Run any skill directly:
 
-Or load directly as a system prompt:
-
-```bash
-claude --system-prompt ~/.claude/skills/ai-startup-builder/ai-startup-builder.md
+```
+/refine          — sharpen a vague idea
+/score           — validate and score /100
+/plan            — MVP roadmap
+/mockup          — design system + HTML mockups
+/package         — developer handoff package
+/investor-check  — investor readiness /50
 ```
 
 ### How it works
 
-The installer copies the skill to `~/.claude/skills/ai-startup-builder/` and creates a
-`/ai-startup-builder` command. When you invoke it, Claude reads the full system prompt
-and begins with OWNER INTAKE.
+The installer copies the core files to `~/.claude/skills/ai-startup-builder/` and creates
+one wrapper command per skill. Each command loads its phase file and runs the full workflow
+defined there. Prior artifacts (e.g. `idea-scorecard.md`) are read automatically if they
+exist in the current directory.
 
 ### Uninstall
 
