@@ -218,15 +218,42 @@ Check the current directory for:
 11. EVIDENCE GATE
     After two rounds of refinement:
     "Have you talked to anyone with this problem?
-       → No  → Don't /score yet. Talk to 5 from [research-found community].
-                Bring quotes back.
+       → No  → Generate interview-kit.md (see step 11a). Talk to 5 from
+                [research-found community]. Bring quotes back.
        → Yes → What did they say? One sentence each. Then we score."
+
+11a. INTERVIEW KIT (only when founder has 0 talked-to)
+     Don't just point at the wall — hand them a productive next move.
+     Generate `interview-kit.md` (see Output Artifacts) tailored to:
+       - The specific target user from refined-idea.md
+       - The named community from the briefing
+       - The wedge feature being validated
+
+     The kit contains:
+       a) 5 interview questions designed to surface the trigger event,
+          status quo, and would-pay signal — without leading the witness
+       b) 1 cold-DM template named to the specific community (different
+          tone for a subreddit, FB group, LinkedIn, Discord)
+       c) 3–4 screener yes/no questions to filter prospects before the call
+       d) A red-flag list — answers that mean "this isn't your user"
+
+     One line to the founder: "Drafted interview-kit.md. Take it to
+     [community] this week. Come back with 5 sets of quotes."
+
+     Do not run /score until quotes are pasted back.
 
 12. SAVE
     Write refined-idea.md (see Output Artifacts).
+    If interview-kit.md was generated, mention it.
 
 13. HANDOFF
-    "Saved to refined-idea.md. Run /score to validate this and get a /100 verdict."
+    If founder has talked to 0 users:
+      "Saved refined-idea.md and interview-kit.md. Don't run /score yet —
+       take the kit to [community], get 5 sets of quotes, paste them back here.
+       Then we score."
+
+    If founder has quotes:
+      "Saved to refined-idea.md. Run /score to validate this and get a /100 verdict."
 ```
 
 ## Anti-pattern library
@@ -327,7 +354,48 @@ ONE QUESTION FOR YOU
 
 ## Output artifacts
 
-`refined-idea.md` — saved on confirmation. Format:
+### `interview-kit.md` (generated only when founder has 0 talked-to at Evidence Gate)
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INTERVIEW KIT — [target user]
+For validating: [one-liner from refined-idea.md]
+Take to: [named community from briefing]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5 INTERVIEW QUESTIONS (do not lead the witness)
+1. Walk me through the last time [trigger event from research] happened.
+   What did you do?
+2. What's the most frustrating part of [domain] right now? Specific moment.
+3. What did you try before? Why did it stop working?
+4. If a tool fixed [pain] tomorrow, what would you stop doing?
+5. What would you pay for that? (Wait for a number — silence is fine.)
+
+COLD-DM TEMPLATE (tuned for [community type])
+"Hey — saw your post about [pain from research]. I'm researching this space
+ and would love 15 minutes to hear how you actually deal with it. Not selling
+ anything. Just listening. Open to a quick call this week?"
+
+SCREENER (3–4 yes/no — filter prospects before the 15-min call)
+[ ] Have you experienced [specific pain] in the last 30 days?
+[ ] Do you currently use [substitute / status quo from research]?
+[ ] Are you the person who would buy a tool for this?
+[ ] Would you spend money on this if it worked?
+
+RED FLAGS (answers that mean "not your user")
+- "It's annoying but not a big deal" → vitamin signal, low urgency
+- "I just live with it" → low pain, won't pay
+- "Sounds interesting but I'd want it free" → wrong segment
+- Answers that match the founder's friend group only → not the real market
+
+AFTER YOU TALK TO 5
+Paste 5 sets of quotes back into /refine or /score.
+Looking for: same trigger event named 3+ times, willingness to pay
+referenced unprompted, frustration with named substitute.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### `refined-idea.md` — saved on confirmation. Format:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
