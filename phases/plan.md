@@ -24,14 +24,22 @@ Most founders over-scope their MVP by 3x. This mode cuts to the smallest thing t
 
 ## Cost
 
-Token: low–medium — one structured artifact + naming research
+Token: low–medium — one structured artifact + naming/GTM/pricing research
 Time: ~10–15 min
-Naming research uses web search when available; falls back to availability-unchecked candidates if not.
+Reuses `refined-idea.md` (communities) and `idea-scorecard.md` (pricing evidence) when present. Naming, GTM, and pricing fall back to availability-unchecked / assumption-only outputs when web tools are unavailable.
+
+## Research efficiency rules
+
+- **Reuse before researching.** `refined-idea.md` already lists communities; `idea-scorecard.md` already grounds pricing. Use them directly. Don't re-search.
+- **WebSearch first, WebFetch only when forced.** Snippets answer most questions. Fetch only for canonical pages (a competitor's pricing page).
+- **Tight extraction prompts on WebFetch.** State exactly what to extract in one sentence. Never "summarize the page".
+- **Hard caps when researching from scratch:** ≤5 candidate names, ≤7 WebSearch queries total across naming + GTM + pricing, ≤2 WebFetch calls. Mark dimensions assumption-only and proceed if web tools are unavailable.
 
 ## Context to load
 
 Check the current directory for:
-- `idea-scorecard.md` — if found, load it. Extract: idea one-liner, type, verdict, top risks, one-liner.
+- `idea-scorecard.md` — if found, load it. Extract: idea one-liner, type, verdict, top risks, **Evidence lines under Market Size / Competition Density / Monetization Clarity** (these feed pricing + GTM directly).
+- `refined-idea.md` — if found, load it. Extract: **communities, why-now signals, competitor list** (these feed GTM + pricing).
 
 If `idea-scorecard.md` not found, ask:
 "What's the idea in one sentence, and what's your score/verdict from /score?
@@ -125,10 +133,54 @@ If `idea-scorecard.md` not found, ask:
      - Tagline (one line for landing page hero, 3 candidates → founder picks)
      - Positioning one-liner ("We are the [X] for [Y]")
 
-6. OUTPUT PROJECT PLAN
+6. GTM CHANNEL RESEARCH (token-efficient)
+   Goal: replace "we'll do content marketing" with a real first-100-users plan
+   tied to where the target audience already gathers.
+
+   IF `refined-idea.md` HAS COMMUNITIES:
+     Reuse them. Pick the 1–2 best fits for the chosen roadmap pattern. Run
+     ZERO new searches.
+
+   IF NO COMMUNITIES IN UPSTREAM ARTIFACTS:
+     Run ≤2 WebSearch queries, e.g.:
+       1) "[target audience] community" or "[target audience] reddit slack"
+       2) "where do [target audience] hang out online"
+     Pull 2–3 named communities (subreddit, Slack/Discord, forum, newsletter).
+
+   Then write GTM as: **specific channel + concrete first-100-users motion**.
+   Examples of acceptable GTM:
+     - "Post weekly teardowns in r/Entrepreneur (47k active); reach 100 via 3
+        posts that hit /top of week"
+     - "Reach out to 50 design partners from Indie Hackers thread on
+        [topic]; convert 10 to paid pilot"
+   Examples of unacceptable GTM:
+     - "Content marketing and SEO"
+     - "We'll do social media"
+
+6a. PRICING RESEARCH (token-efficient)
+   Goal: anchor pricing in real competitor numbers, not vibes.
+
+   IF `idea-scorecard.md` HAS Monetization Clarity Evidence:
+     Reuse it. Pull the comparable price points already cited. Run ZERO new
+     searches.
+
+   IF NO PRICING EVIDENCE UPSTREAM:
+     Run ≤2 WebSearch queries on top competitor pricing, e.g.:
+       1) "[competitor 1] pricing"
+       2) "[competitor 2] pricing"
+     OR ≤1 WebFetch on a competitor pricing page with extraction prompt:
+       "Plans and prices only. Bullet list. Skip marketing copy."
+
+   Write pricing as: **model + price + 1-line comparable reference**.
+     - "Freemium with $19/mo Pro tier (Linear is $8/seat, Notion is $10/seat,
+        we sit higher on AI cost)"
+     - "$99/mo flat (Calendly Teams is $16/seat × 5 = $80; we're 1 line item)"
+   Never write "TBD" or "$X/mo" without a comparable.
+
+7. OUTPUT PROJECT PLAN
    Produce the full project plan (see Output Artifacts).
 
-7. GATE 2
+8. GATE 2
    Ask exactly:
    "GATE 2 — Does this plan look right?
    → Approve   Move to /mockup
@@ -220,10 +272,15 @@ SUCCESS METRICS
 - [metric] → [target]
 
 GTM STRATEGY
-[Specific channel + how you get the first 100 users. No "SEO and social media".]
+Channel        → [named community / platform — reddit r/X, Slack, IH, etc.]
+First-100 plan → [concrete motion, e.g. "3 weekly teardown posts targeting /top"]
+Evidence       → [from refined-idea.md communities OR research sweep — cite source]
 
 PRICING
-[Model + price point + one line reasoning based on comparable products]
+Model      → [freemium / flat / per-seat / usage]
+Price      → [number, not range]
+Comparable → [real competitor + their price — anchors the choice]
+Evidence   → [from idea-scorecard.md Monetization line OR research sweep]
 
 ───────────────────────────────────────
 V2 (Post-Validation)
@@ -272,11 +329,12 @@ Epic 3 — Future  → [one line goal]
 ## Constraints
 
 - **MVP max 5 features** — no exceptions without pushback
-- **No vague GTM** — "we'll do content marketing" is not acceptable. Channel + first 100 users specifically.
-- **No "TBD" pricing** — give a range with reasoning, even if rough
+- **No vague GTM** — "we'll do content marketing" is not acceptable. Named channel + first-100 motion + Evidence line citing where the audience comes from.
+- **No "TBD" pricing** — must include a price number AND a real comparable (competitor name + their price). "Freemium with paid tier TBD" is not acceptable.
+- **Reuse upstream research before searching** — `refined-idea.md` communities feed GTM; `idea-scorecard.md` Monetization Evidence feeds pricing. Don't re-search what's already cited.
 - **Never plan V2 in detail until MVP is scoped** — V2 section is directional only
 - If the user's stated features are clearly over-scoped, say so before filtering
-- **Naming research is capped: ≤5 candidate names, ≤7 WebSearch queries, ≤2 WebFetch calls.** Don't over-research naming — the .com check + one conflict scan is enough at this stage. The trademark deep-dive happens with a lawyer, not /plan.
+- **Total research cap across naming + GTM + pricing: ≤7 WebSearch, ≤2 WebFetch, ≤5 candidate names.** Naming alone shouldn't burn the budget — the .com check + one conflict scan is enough. Trademark deep-dives happen with a lawyer, not /plan.
 - **Never recommend a name with a taken .com without flagging the tradeoff** — `getfoo.com` and `foo.io` signal "couldn't get the real one"
 - **If the founder already has a name they love, validate it but don't undermine it** — three searches, report findings, move on.
 
