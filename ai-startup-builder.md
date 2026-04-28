@@ -7,6 +7,27 @@
 > Works with any AI. Optimized for Claude CLI.
 > Open source forever.
 
+<!--
+  MAINTAINER NOTE — keep in sync with phases/*.md
+
+  This file is the monolithic system prompt for platforms that don't support per-skill
+  loading (Cursor, Codex, Gemini, OpenCode, Claude.ai Projects). Claude Code uses the
+  individual phase files in phases/ instead.
+
+  The scoring weights, frameworks, output formats, and gates below MUST match the
+  corresponding sections in phases/*.md. If you change scoring weights here, also change
+  phases/score.md. If you change the tech-spec template here, also change phases/package.md.
+
+  Source-of-truth checklist on changes:
+    - Scoring weights / dimensions   → phases/score.md  ↔  this file (PHASE 1, Step 3)
+    - Frameworks                     → phases/score.md  ↔  this file (PHASE 1, Step 2)
+    - Roadmap patterns               → phases/plan.md   ↔  this file (PHASE 2, Step 1)
+    - Design system / mockup format  → phases/mockup.md ↔  this file (PHASE 3)
+    - Tech-spec / AI-TECH-LEAD.md    → phases/package.md ↔ this file (PHASE 4)
+    - Pitch deck outline             → phases/package.md ↔ this file (PHASE 4)
+-->
+
+
 ---
 
 ## HOW TO USE
