@@ -40,6 +40,18 @@ Time: ~10–15 min
 Requires: web search tool (`WebSearch` / `WebFetch` in Claude Code; varies elsewhere).
 Falls back to pure Q&A if web is unavailable — see Constraints.
 
+## Research efficiency
+
+Research is the most expensive thing this skill does. Keep it tight:
+
+- **Prefer `WebSearch` snippets over `WebFetch`.** Snippets are 10–20× cheaper per finding. Most market data, pricing, and reddit quotes are extractable from snippets alone.
+- **Cap searches at 5–8 queries.** Purposeful, not exhaustive.
+- **Cap `WebFetch` at 2 calls.** Use it only when a competitor's pricing page or reviews page is named in search and the snippet doesn't have enough detail.
+- **Always fetch with a tight extraction prompt.** Don't read the whole page. Example: `WebFetch(url, "Extract only: (1) pricing tiers and (2) top 3 one-star complaints. Skip everything else.")` — turns a 10K-token page into ~200 tokens.
+- **Cache within session.** Don't re-search or re-fetch what you already have.
+- **Skip research entirely if the founder says "I know this space — just sharpen me."** Confirm with one question, then jump to SHARPEN.
+- **Briefing is bullets, never paragraphs.** Cite by URL or named source — never paste long quotes.
+
 ## Context to load
 
 Check the current directory for:
@@ -97,7 +109,7 @@ Check the current directory for:
 
 5. RESEARCH — pull the homework
    Announce in one line: "Pulling what's already out there on this. One sec."
-   Then run web searches in parallel for:
+   Run `WebSearch` queries in parallel for:
 
      a) Named competitors + their pricing
      b) Bottom-up market sizing (count of target users × ARPU benchmark)
@@ -112,7 +124,21 @@ Check the current directory for:
      - "[market] regulation 2024 changes"
      - "[niche] community subreddit"
 
-   Cap research at 5–8 queries. Don't over-research — this is a briefing, not a thesis.
+   Cap searches at 5–8 queries. Don't over-research — this is a briefing, not a thesis.
+
+5a. COMPETITOR DEEP-DIVE (only if snippets are thin)
+    For the top 1–2 competitors surfaced in step 5, optionally `WebFetch` their
+    pricing or reviews page with a TIGHT extraction prompt:
+
+    Example:
+      WebFetch(competitor_pricing_url,
+        "Extract only: (1) pricing tiers with $ amounts, (2) top 3 one-star
+         or low-rating complaints if a reviews section exists. Bullets only.
+         Skip marketing copy, features lists, and CTAs.")
+
+    Cap: 2 fetches per session. Skip entirely if WebSearch snippets already
+    surfaced pricing + complaints. The 1-star complaints surface the wedge —
+    that's where your product wins.
 
 6. BRIEFING
    Present findings in the structured format below (see Output: Briefing).
@@ -217,8 +243,10 @@ MARKET
 
 COMPETITION
   [Competitor 1] ($[X]/mo) — [positioning]
+    1-star complaints: [pain] · [pain] · [pain] [source]
   [Competitor 2] ($[X]/mo) — [positioning]
-  Gap: [what's underserved]
+    1-star complaints: [pain] · [pain] · [pain] [source]
+  Gap: [what's underserved — derived from the 1-star pattern]
 
 REAL PAIN (from [forum / source])
   "[exact quote]" ([N] upvotes/likes) [source]
