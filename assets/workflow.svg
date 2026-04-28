@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="builderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+    <linearGradient id="handoffGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#0ea5e9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="460" rx="12" fill="#0d1117"/>
+
+  <!-- === HERO CARD === -->
+  <rect x="40" y="24" width="880" height="72" rx="10" fill="#161b22" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="40" y="24" width="880" height="3" rx="2" fill="url(#builderGrad)"/>
+  <text x="60" y="52" fill="#e6edf3" font-size="14" font-weight="600">ai-startup-builder</text>
+  <text x="60" y="70" fill="#8b949e" font-size="11">From raw idea to validated, designed, and fully specced project package — ~1 hour</text>
+  <text x="60" y="86" fill="#f97316" font-size="9" font-weight="500" letter-spacing="1">BUSINESS CO-FOUNDER</text>
+  <text x="900" y="70" text-anchor="end" fill="#6e7681" font-size="9">Claude Code · Cursor · Codex · Gemini CLI</text>
+
+  <!-- === PHASE CHAIN === -->
+  <line x1="80" y1="116" x2="880" y2="116" stroke="#21262d" stroke-width="1"/>
+
+  <!-- OWNER INTAKE (dashed — pre-phase) -->
+  <rect x="40" y="132" width="100" height="44" rx="8" fill="#161b22" stroke="#484f58" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="90" y="151" text-anchor="middle" fill="#6e7681" font-size="9" font-weight="600">OWNER</text>
+  <text x="90" y="165" text-anchor="middle" fill="#6e7681" font-size="9" font-weight="600">INTAKE</text>
+
+  <!-- Arrow -->
+  <line x1="144" y1="154" x2="156" y2="154" stroke="#30363d" stroke-width="1.5"/>
+  <polygon points="156,150 164,154 156,158" fill="#30363d"/>
+
+  <!-- Phase 1 -->
+  <rect x="168" y="132" width="150" height="44" rx="8" fill="#161b22" stroke="#f97316" stroke-width="1.2"/>
+  <text x="243" y="150" text-anchor="middle" fill="#f97316" font-size="11" font-weight="600">Phase 1 — Challenge</text>
+  <text x="243" y="167" text-anchor="middle" fill="#8b949e" font-size="9">~15 min</text>
+
+  <!-- Gate 1 -->
+  <line x1="322" y1="154" x2="335" y2="154" stroke="#30363d" stroke-width="1"/>
+  <polygon points="345,154 358,143 371,154 358,165" fill="#21262d" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="358" y="158" text-anchor="middle" fill="#f59e0b" font-size="8" font-weight="700">G1</text>
+  <line x1="375" y1="154" x2="386" y2="154" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Phase 2 -->
+  <rect x="390" y="132" width="150" height="44" rx="8" fill="#161b22" stroke="#f97316" stroke-width="1.2"/>
+  <text x="465" y="150" text-anchor="middle" fill="#f97316" font-size="11" font-weight="600">Phase 2 — Plan</text>
+  <text x="465" y="167" text-anchor="middle" fill="#8b949e" font-size="9">~10 min</text>
+
+  <!-- Gate 2 -->
+  <line x1="544" y1="154" x2="557" y2="154" stroke="#30363d" stroke-width="1"/>
+  <polygon points="567,154 580,143 593,154 580,165" fill="#21262d" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="580" y="158" text-anchor="middle" fill="#f59e0b" font-size="8" font-weight="700">G2</text>
+  <line x1="597" y1="154" x2="608" y2="154" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Phase 3 -->
+  <rect x="612" y="132" width="150" height="44" rx="8" fill="#161b22" stroke="#f97316" stroke-width="1.2"/>
+  <text x="687" y="150" text-anchor="middle" fill="#f97316" font-size="11" font-weight="600">Phase 3 — Design</text>
+  <text x="687" y="167" text-anchor="middle" fill="#8b949e" font-size="9">~20 min</text>
+
+  <!-- Gate 3 -->
+  <line x1="766" y1="154" x2="779" y2="154" stroke="#30363d" stroke-width="1"/>
+  <polygon points="789,154 802,143 815,154 802,165" fill="#21262d" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="802" y="158" text-anchor="middle" fill="#f59e0b" font-size="8" font-weight="700">G3</text>
+  <line x1="819" y1="154" x2="830" y2="154" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Phase 4 -->
+  <rect x="834" y="132" width="86" height="44" rx="8" fill="#161b22" stroke="#f97316" stroke-width="1.2"/>
+  <text x="877" y="150" text-anchor="middle" fill="#f97316" font-size="10" font-weight="600">Phase 4</text>
+  <text x="877" y="163" text-anchor="middle" fill="#f97316" font-size="10" font-weight="600">Build Pkg</text>
+  <text x="877" y="175" text-anchor="middle" fill="#8b949e" font-size="9">~15 min</text>
+
+  <!-- === OUTPUTS === -->
+  <line x1="80" y1="196" x2="880" y2="196" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Output label -->
+  <text x="40" y="216" fill="#6e7681" font-size="9" font-weight="600" letter-spacing="1">OUTPUTS</text>
+
+  <!-- Phase 1 output -->
+  <rect x="168" y="206" width="150" height="22" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <text x="243" y="221" text-anchor="middle" fill="#8b949e" font-size="9">idea-scorecard.md</text>
+
+  <!-- Phase 2 output -->
+  <rect x="390" y="206" width="150" height="22" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <text x="465" y="221" text-anchor="middle" fill="#8b949e" font-size="9">project-plan.md</text>
+
+  <!-- Phase 3 outputs -->
+  <rect x="594" y="206" width="186" height="22" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <text x="687" y="221" text-anchor="middle" fill="#8b949e" font-size="9">design-system · flows · mockups</text>
+
+  <!-- Phase 4 outputs -->
+  <rect x="800" y="205" width="120" height="34" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="860" y="218" text-anchor="middle" fill="#8b949e" font-size="9">tech-spec.md</text>
+  <text x="860" y="231" text-anchor="middle" fill="#8b949e" font-size="9">AI-TECH-LEAD.md</text>
+
+  <!-- === SPECIAL MODES === -->
+  <line x1="80" y1="252" x2="880" y2="252" stroke="#21262d" stroke-width="1"/>
+
+  <!-- ROAST MODE -->
+  <rect x="40" y="268" width="274" height="40" rx="8" fill="#161b22" stroke="#484f58" stroke-width="1"/>
+  <text x="60" y="284" fill="#e6edf3" font-size="10" font-weight="600">ROAST MODE</text>
+  <text x="60" y="299" fill="#8b949e" font-size="9">say "roast me" — no-filter brutal feedback + top 3 fixes</text>
+
+  <!-- PIVOT MODE -->
+  <rect x="334" y="268" width="274" height="40" rx="8" fill="#161b22" stroke="#484f58" stroke-width="1"/>
+  <text x="354" y="284" fill="#e6edf3" font-size="10" font-weight="600">PIVOT MODE</text>
+  <text x="354" y="299" fill="#8b949e" font-size="9">say "pivot" — 3 alternative directions, each scored</text>
+
+  <!-- INVESTOR MODE -->
+  <rect x="628" y="268" width="292" height="40" rx="8" fill="#161b22" stroke="#484f58" stroke-width="1"/>
+  <text x="648" y="284" fill="#e6edf3" font-size="10" font-weight="600">INVESTOR READINESS</text>
+  <text x="648" y="299" fill="#8b949e" font-size="9">say "investor check" — readiness score /50</text>
+
+  <!-- === GATES / HARD STOPS === -->
+  <line x1="80" y1="328" x2="880" y2="328" stroke="#21262d" stroke-width="1"/>
+
+  <text x="480" y="350" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Gates</text>
+
+  <rect x="40" y="362" width="268" height="38" rx="6" fill="#161b22" stroke="#f59e0b44" stroke-width="1"/>
+  <rect x="46" y="368" width="3" height="26" rx="1.5" fill="#f59e0b"/>
+  <text x="58" y="379" fill="#f59e0b" font-size="10" font-weight="700">GATE APPROVAL REQUIRED</text>
+  <text x="58" y="393" fill="#8b949e" font-size="9">No gate = no next phase. Non-negotiable.</text>
+
+  <rect x="328" y="362" width="268" height="38" rx="6" fill="#161b22" stroke="#ef444444" stroke-width="1"/>
+  <rect x="334" y="368" width="3" height="26" rx="1.5" fill="#ef4444"/>
+  <text x="346" y="379" fill="#ef4444" font-size="10" font-weight="700">PIVOT OR KILL</text>
+  <text x="346" y="393" fill="#8b949e" font-size="9">Score &lt; 61 triggers pivot suggestions or KILL.</text>
+
+  <rect x="616" y="362" width="304" height="38" rx="6" fill="#161b22" stroke="#10b98144" stroke-width="1"/>
+  <rect x="622" y="368" width="3" height="26" rx="1.5" fill="#10b981"/>
+  <text x="634" y="379" fill="#10b981" font-size="10" font-weight="700">HANDOFF TO ai-tech-lead</text>
+  <text x="634" y="393" fill="#8b949e" font-size="9">Phase 4 outputs drop straight into the build.</text>
+
+  <!-- === QUICK START === -->
+  <line x1="80" y1="418" x2="880" y2="418" stroke="#21262d" stroke-width="1"/>
+
+  <rect x="40" y="430" width="880" height="18" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="480" y="443" text-anchor="middle" fill="#7ee787" font-size="11" font-family="'SF Mono', 'Fira Code', monospace">/ai-startup-builder</text>
+
+</svg>
