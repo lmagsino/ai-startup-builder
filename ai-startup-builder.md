@@ -818,10 +818,10 @@ AUTH_SECRET=
 [Service] → [purpose] → [free tier limit]
 
 ## 13. Design Assets (for ai-tech-lead /design)
-design_system:  ./design/design-system.md
-user_flows:     ./design/user-flows.md
-user_personas:  ./design/user-personas.md
-mockups:        ./design/mockups/
+design_system:  ./design-system.md
+user_flows:     ./user-flows.md
+user_personas:  ./user-personas.md
+mockups:        ./mockups/
 
 ## 14. Open Questions for ai-tech-lead
 [ ] [question]
@@ -915,10 +915,10 @@ AI Layer   → [tech or 'N/A']
 
 All approved by founder. Use these — do not redesign from scratch.
 
-design_system:  ./design/design-system.md
-user_flows:     ./design/user-flows.md
-user_personas:  ./design/user-personas.md
-mockups:        ./design/mockups/
+design_system:  ./design-system.md
+user_flows:     ./user-flows.md
+user_personas:  ./user-personas.md
+mockups:        ./mockups/
 
 ---
 
@@ -1100,18 +1100,17 @@ FILES GENERATED
 HANDOFF TO ai-tech-lead
 ─────────────────────────────────────
 1. git init [project-name]
-2. cp AI-TECH-LEAD.md [project-name]/
-3. cp tech-spec.md [project-name]/
-4. cp -r design/ [project-name]/
-5. cd [project-name]
-6. claude (with ai-tech-lead loaded)
-7. /strategy
+2. cp AI-TECH-LEAD.md tech-spec.md [project-name]/
+3. cp -r mockups/ design-system.md user-flows.md user-personas.md [project-name]/
+4. cd [project-name]
+5. claude (with ai-tech-lead loaded)
+6. /strategy
    She reads AI-TECH-LEAD.md + tech-spec.md
    Outputs: STRATEGY.md — GO or STOP
-8. /design
+7. /design
    She reads design-system.md + mockups/
    Outputs: DESIGN.md
-9. /blueprint → /forge → /guard → /launch
+8. /blueprint → /forge → /guard → /launch
 ─────────────────────────────────────
 Confidence: [low/medium/high]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1360,7 +1359,7 @@ YOU HAVE AN IDEA
        │  Copy to project repo:
        │  → AI-TECH-LEAD.md  (constitution)
        │  → tech-spec.md     (blueprint input)
-       │  → design/          (approved assets)
+       │  → design-system.md, user-flows.md, user-personas.md, mockups/
        │
        ▼
 ┌─────────────────────────────────────────┐
