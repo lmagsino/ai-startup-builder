@@ -27,8 +27,9 @@ The goal is not to produce a passing score. The goal is to surface the 3 specifi
 
 ## Cost
 
-Token: low — assessment in conversation, no files saved by default
+Token: low — assessment in conversation, optional 1–2 benchmark searches
 Time: ~5–10 min
+Reuses `idea-scorecard.md` (type, verdict) to pick relevant benchmarks. Caps research at ≤2 WebSearch — skip if no web tools available and note benchmarks are assumed.
 
 ## Context to load
 
@@ -61,7 +62,24 @@ Use whatever context is available. This mode works with just a conversation — 
    
    Do not ask for all details upfront — extract what you need from their answer.
 
-2. ASSESS 5 DIMENSIONS
+2. BENCHMARK LOOKUP (token-efficient)
+   Goal: ground "what investors expect at seed" in real data for this idea
+   type — not a generic checklist.
+
+   Pull the idea type from `idea-scorecard.md` (SaaS / Marketplace /
+   Consumer / B2B / AI Product). Then run ≤2 WebSearch queries:
+     1) "[idea type] seed stage metrics investors expect" or
+        "[idea type] pre-seed raise requirements [current year]"
+     2) (Optional) "[idea type] seed deal size average [current year]"
+
+   Extract: typical MRR/ARR targets, user counts, or traction signals
+   investors cite for this category at seed vs. pre-seed. Use in the
+   TOP 3 GAPS to give specific, calibrated targets — not generic advice.
+
+   If `idea-scorecard.md` absent or web tools unavailable: skip, use known
+   benchmarks, note "benchmark: assumed" in the output.
+
+2a. ASSESS 5 DIMENSIONS
    Score each 1–10.
 
    IDEA CLARITY (1-10)
@@ -91,6 +109,8 @@ Use whatever context is available. This mode works with just a conversation — 
 
 3. OUTPUT ASSESSMENT
    Produce the investor check output (see Output Artifacts).
+   Include Benchmarks line from step 2 — investors score against a bar,
+   not in the abstract.
 
 4. TOP 3 GAPS
    Name exactly 3 gaps — the ones that would cause a pass.
@@ -114,6 +134,9 @@ INVESTOR READINESS CHECK
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Idea          → [one line]
 Stage         → [where you are]
+
+Benchmarks → [seed bar for this idea type, e.g. "B2B SaaS: ~$5–10k MRR or
+              3+ design partners before pre-seed" — from research or assumed]
 
 SCORES
 Idea Clarity       [X]/10
