@@ -2,13 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built for Claude Code](https://img.shields.io/badge/Built%20for-Claude%20Code-blueviolet)](https://claude.ai/code)
-[![Phases](https://img.shields.io/badge/Phases-4-orange)]()
+[![Skills](https://img.shields.io/badge/Skills-6-orange)]()
 
 **The business brain before the technical brain.**
 
 Solo founders get a co-founder who challenges ideas before they get built, then produces a complete project package ready to hand to a developer. Built on [Claude Code](https://claude.ai/code).
 
-> **Why not just use Claude?** ai-startup-builder is a structured workflow with scoring frameworks, hard phase gates, and artifact chains — not a general-purpose chatbot. It scores your idea before generating anything, blocks Phase 2 if Phase 1 fails, and says KILL when your idea has structural problems execution won't fix.
+> **Why not just use Claude?** ai-startup-builder is a structured workflow with scoring frameworks, hard phase gates, and artifact chains — not a general-purpose chatbot. It challenges your idea before generating anything, scores it before planning, and blocks the next phase until the current one is approved.
 
 ```
 ai-startup-builder: What's your idea?
@@ -33,62 +33,51 @@ cd ai-startup-builder
 ./setup.sh
 ```
 
-Then:
+Then run any skill directly:
 
 ```
-/ai-startup-builder
+/refine
+/score
+/plan
+/mockup
+/package
+/investor-check
 ```
 
-OWNER INTAKE starts automatically — 5 questions, answer all at once. Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **OpenCode**. See [INSTALL.md](INSTALL.md) for details.
+Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **OpenCode**. See [INSTALL.md](INSTALL.md) for details.
 
 ---
 
-## What you get
+## Skills
 
-One session (~1 hour) produces a complete project folder ready to hand to [ai-tech-lead](https://github.com/lmagsino/ai-tech-lead):
+Each skill is a standalone command. Run them in order or jump to any phase — each one reads prior artifacts from the current directory if they exist, and asks inline for what's missing.
 
-```
-projects/[name]/
-├── idea-scorecard.md       → validation result with score /100
-├── project-plan.md         → MVP → V2 → Future roadmap
-├── linear-board.md         → paste-ready for Linear
-├── design-system.md        → brand, colors, typography
-├── user-personas.md        → who you're building for
-├── user-flows.md           → core user journeys
-├── mockups/                → key screens as HTML
-├── tech-spec.md            → for ai-tech-lead /blueprint
-└── AI-TECH-LEAD.md         → pre-filled, drop into project repo
-```
+| Skill | What it does | Produces |
+|-------|-------------|---------|
+| `/refine` | Sharpen a vague idea — one sharp question at a time | Refined one-liner |
+| `/score` | Validate + score /100 across 7 dimensions — verdict + risks | `idea-scorecard.md` |
+| `/plan` | MVP roadmap — pattern, scope, milestones, GTM, pricing | `project-plan.md` |
+| `/mockup` | Personas + design system + flows + HTML mockups | `design-system.md`, `user-flows.md`, `mockups/` |
+| `/package` | Full developer handoff — tech spec, AI-TECH-LEAD.md, Linear board, pitch deck | All handoff files |
+| `/investor-check` | Investor readiness /50 — top 3 gaps to close before raising | Assessment |
 
----
-
-## Phases
-
-| Step | What happens | Output |
-|------|-------------|--------|
-| **Idea** | Share your idea — one sentence is enough | — |
-| **Refinement** | Sharp questions to nail the user, problem, and angle | Sharpened idea |
-| **Owner Intake** | Stack, design taste, rules, audience, constraints — all 5 at once | SESSION CONTEXT |
-| **Phase 1 — Challenge** | Classify → framework → score /100 → verdict | `idea-scorecard.md` |
-| **Phase 2 — Plan** | Roadmap pattern → MVP filter → milestones → GTM → pricing | `project-plan.md` |
-| **Phase 3 — Design** | Personas → flows → design system → HTML mockups | `design-system.md`, `user-flows.md`, `mockups/` |
-| **Phase 4 — Build Package** | tech-spec → AI-TECH-LEAD.md → Linear board → pitch deck outline | All handoff files |
-
-Each phase ends with a gate. No approval = no next phase.
+**Modes inside `/score`:**
+- Say `roast me` → no-filter brutal feedback + top 3 fixes
+- Say `pivot` (or score < 61) → 3 alternative directions, each scored
 
 ---
 
-## How it works
+## Standard flow
 
-**Challenges first.** Every phase opens with a challenge or classification — never with enthusiasm.
+```
+/refine     → sharpen the idea
+/score      → validate and score
+/plan       → MVP roadmap
+/mockup     → design and screens
+/package    → handoff to ai-tech-lead
+```
 
-**Scored, not vibed.** Every idea gets a /100 score across 7 weighted dimensions. Verdict is automatic: KILL IT, PIVOT IT, BUILD IT, or BET ON IT.
-
-**Hard gates.** Phase N+1 is blocked until Gate N is approved. Score < 61 triggers pivot suggestions before proceeding.
-
-**Artifact chain.** Owner Intake → Scorecard → Project Plan → Design System → Tech Spec → AI-TECH-LEAD.md → handoff.
-
-**Hands off cleanly.** Phase 4 outputs `AI-TECH-LEAD.md` pre-filled with everything [ai-tech-lead](https://github.com/lmagsino/ai-tech-lead) needs. Drop it in the repo and run `/strategy`.
+Each step saves a file. Each next step reads it.
 
 ---
 
@@ -106,15 +95,25 @@ Every idea scored /100 across 7 weighted dimensions:
 | Technical Feasibility | 10% | Buildable with current tools in <6 months |
 | Unfair Advantage | 10% | Strong moat (data, network, IP, brand, access) |
 
+**Verdicts:**
+- 🔴 KILL IT (0–40) — Structural problems. Execution won't fix them.
+- 🟡 PIVOT IT (41–60) — Core insight good, angle is wrong. Pivots auto-generated.
+- 🟢 BUILD IT (61–80) — Solid. Execute well.
+- ⭐ BET ON IT (81–100) — Strong signal. Move fast.
+
 ---
 
-## Special modes
+## How it works
 
-| Trigger | Mode | What it does |
-|---------|------|-------------|
-| `roast me` | ROAST MODE | No-filter brutal feedback — every weak assumption + top 3 fixes |
-| `pivot` | PIVOT MODE | 3 alternative directions with new user, monetization, and entry point |
-| `investor check` | INVESTOR READINESS | Readiness score /50 — NOT READY / GETTING THERE / READY |
+**Challenges first.** Every skill opens with a challenge — never with enthusiasm.
+
+**Artifacts chain.** `/refine` sharpens → `/score` saves `idea-scorecard.md` → `/plan` reads it → `/mockup` reads plan → `/package` reads everything. Each step builds on the last.
+
+**Independent entry.** Jump to any skill at any time. If prior files don't exist, the skill asks inline for the minimum needed. No ceremony.
+
+**Hard gates.** Each phase skill ends with a gate question. The next skill is named explicitly — proceed only when ready.
+
+**Hands off cleanly.** `/package` produces `AI-TECH-LEAD.md` pre-filled for [ai-tech-lead](https://github.com/lmagsino/ai-tech-lead). Drop it in the project repo and run `/strategy`.
 
 ---
 
@@ -122,15 +121,14 @@ Every idea scored /100 across 7 weighted dimensions:
 
 ```bash
 git init [project-name]
-cp AI-TECH-LEAD.md [project-name]/
-cp tech-spec.md [project-name]/
-cp -r design/ [project-name]/
+cp AI-TECH-LEAD.md tech-spec.md [project-name]/
+cp -r mockups/ design-system.md user-flows.md user-personas.md [project-name]/
 cd [project-name]
 claude   # with ai-tech-lead loaded
 /strategy
 ```
 
-She reads `AI-TECH-LEAD.md` and `tech-spec.md`. Outputs `STRATEGY.md` — GO or STOP.
+She reads `AI-TECH-LEAD.md` + `tech-spec.md`. Outputs `STRATEGY.md` — GO or STOP.
 
 ---
 
