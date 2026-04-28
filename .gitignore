@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Generated session outputs (user creates these, not tracked in repo)
+projects/
+
+# Backup files from sed
+*.bak
