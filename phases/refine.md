@@ -155,6 +155,32 @@ Check the current directory for:
    Present findings in the structured format below (see Output: Briefing).
    Cite sources inline. Bullets, not paragraphs.
 
+6a. PIVOT-OR-PROCEED GATE
+    Before sharpening, look at what research surfaced. If ANY of these are true,
+    the premise is structurally weak and sharpening it further wastes the founder's
+    time:
+
+      • TAM ceiling < $50M ARR even at optimistic capture
+      • Anti-pattern matched and the addressable variant is far from stated idea
+      • Regulatory burden makes solo / unfunded build infeasible (e.g. FDA, FINRA)
+      • 5+ named competitors with no clear gap in the 1-star complaints
+      • Why-now signal absent (this could have been built 5 years ago — and wasn't)
+
+    If triggered, call it directly — do not enter SHARPEN:
+
+      "Stop. The premise is structurally weak — [specific reason from research].
+       Sharpening this further won't fix it. Three better angles in this space:
+
+       A) [pivot] — [why stronger, grounded in research]
+       B) [pivot] — [why stronger, grounded in research]
+       C) [pivot] — [why stronger, grounded in research]
+
+       Pick A/B/C, propose your own angle, or kill it and bring a new idea."
+
+    The pivots must be grounded in the research just done, not invented. If you
+    can't propose three credible pivots from what surfaced, say so honestly:
+    "I don't see a strong pivot in this space from what I found. Recommend kill."
+
 7. DIRECTION QUESTION
    Ask exactly one question informed by what research surfaced.
    Examples:
