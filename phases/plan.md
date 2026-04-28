@@ -22,6 +22,11 @@ Most founders over-scope their MVP by 3x. This mode cuts to the smallest thing t
 - "Help me scope this"
 - After `/score` — when the idea has passed Gate 1
 
+## Cost
+
+Token: low — one structured artifact, no generated assets
+Time: ~10 min
+
 ## Context to load
 
 Check the current directory for:

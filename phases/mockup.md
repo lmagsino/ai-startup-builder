@@ -26,6 +26,12 @@ Every design decision is challenged against design maturity level: does this nee
 - "Create the design system"
 - After `/plan` — when MVP scope is locked
 
+## Cost
+
+Token: high — generates HTML mockups (~3,000–6,000 tokens)
+Time: ~20 min
+Warns before generating mockups (see Token warning section).
+
 ## Context to load
 
 Check the current directory for:

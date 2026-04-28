@@ -24,6 +24,11 @@ The score is not the verdict alone. The honest take at the end is. A 72/100 idea
 - After `/refine` — when the idea is sharp enough to evaluate
 - Directly — if the idea is already specific
 
+## Cost
+
+Token: low — framework analysis + one structured artifact
+Time: ~10–15 min
+
 ## Context to load
 
 Check the current directory for:

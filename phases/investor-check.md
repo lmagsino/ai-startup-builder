@@ -25,6 +25,11 @@ The goal is not to produce a passing score. The goal is to surface the 3 specifi
 - After completing some or all of the build chain, wanting an external-facing reality check
 - Before preparing a pitch deck or reaching out to investors
 
+## Cost
+
+Token: low — assessment in conversation, no files saved by default
+Time: ~5–10 min
+
 ## Context to load
 
 Check the current directory for:

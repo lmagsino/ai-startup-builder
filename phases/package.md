@@ -23,6 +23,12 @@ The outputs of this mode are the inputs to ai-tech-lead. Every file is pre-fille
 - "I'm ready to start building"
 - After `/mockup` — when design is approved at Gate 3
 
+## Cost
+
+Token: high — generates 4 files (~4,000–8,000 tokens)
+Time: ~15 min
+Warns before generating (see Token warning section).
+
 ## Context to load
 
 Check the current directory for all prior artifacts:

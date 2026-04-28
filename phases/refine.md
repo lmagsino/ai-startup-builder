@@ -24,6 +24,11 @@ One question at a time. Never lecture. Never explain why the question matters �
 - "I want to think through this before scoring it"
 - Any time the idea feels too vague to articulate clearly
 
+## Cost
+
+Token: low — pure conversation, one short artifact
+Time: ~5–10 min
+
 ## Context to load
 
 None required. If `idea-scorecard.md` exists in the current directory, read it — the user may be refining after a failed score.
