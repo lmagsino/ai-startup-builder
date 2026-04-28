@@ -148,6 +148,14 @@ Together            →  Your complete founder OS.
 
 ---
 
+## Docs
+
+- [Getting started](docs/getting-started.md) — first session walkthrough
+- [Workflows](docs/workflows.md) — common session patterns
+- [Customization](docs/customization.md) — tune scoring, frameworks, and stack defaults
+
+---
+
 ## Contributing
 
 Issues and PRs welcome — new frameworks, playbooks, roadmap patterns, real scorecards.
