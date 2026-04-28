@@ -1,107 +1,117 @@
 # Workflows
 
-Common session patterns for different founder situations.
+Common session patterns.
 
 ---
 
-## New idea, starting from scratch
-
-The standard flow. Takes ~1 hour.
+## Full flow — idea to handoff (~1 hour)
 
 ```
-/ai-startup-builder
-→ Answer Owner Intake (5 questions)
-→ Share your idea
-→ Phase 1 — Challenge (score + scorecard)
-  → Gate 1: Approve / Pivot / Kill
-→ Phase 2 — Plan (roadmap + MVP scope)
-  → Gate 2: Approve / Adjust
-→ Phase 3 — Design (personas + flows + mockups)
-  → Gate 3: Approve / Adjust / Redo
-→ Phase 4 — Build Package (all handoff files)
-→ Done — copy files to project repo
+/refine          → sharpen vague idea
+/score           → validate + score /100
+/plan            → MVP roadmap
+/mockup          → design + HTML screens
+/package         → dev handoff package
+```
+
+Each step saves a file. Each next step reads it automatically.
+
+---
+
+## Already have a clear idea, skip refinement
+
+```
+/score
+→ "What's your idea?" [you give it directly]
+→ [scores + scorecard]
+/plan
+/mockup
+/package
 ```
 
 ---
 
-## Idea that needs brutal feedback
-
-Use ROAST MODE before going through the phases.
+## Idea needs brutal feedback first
 
 ```
-/ai-startup-builder
-→ Answer Owner Intake
-→ Share your idea, then say "roast me"
-→ Get no-filter feedback + top 3 fixes
+/score
+→ Share idea
+→ Say "roast me"
+→ [ROAST MODE: no-filter + top 3 fixes]
 → Decide whether to proceed or rethink
-→ Say "proceed" to continue to Phase 1
+→ Gate 1: Proceed / Pivot / Kill
 ```
 
 ---
 
-## Idea that keeps failing the scorecard
-
-Use PIVOT MODE to find the right angle.
+## Low score — explore pivots
 
 ```
-/ai-startup-builder
-→ Phase 1 scores < 61
-→ Automatic pivot suggestions generated
-→ Or say "pivot" at any time
-→ Pick a direction, or ask to score each pivot
-→ Re-challenge the strongest pivot
-→ Continue from Phase 1 with new angle
+/score
+→ Score < 61 → auto-generates PIVOT SUGGESTIONS
+→ Or say "pivot" any time during /score
+→ Pick a direction
+→ /score [with new angle]
+→ Continue if score > 61
 ```
 
 ---
 
-## Already have a plan, need the handoff package
-
-Skip to Phase 4 by telling it at Owner Intake.
+## Just need the design
 
 ```
-/ai-startup-builder
-→ Answer Owner Intake
-→ Share your idea + say "I have a plan already, skip to Phase 4"
-→ Provide your existing plan details
-→ Phase 4 generates: tech-spec.md + AI-TECH-LEAD.md + linear-board.md
+/mockup
+→ Asks: "What are the 3-5 MVP features and primary user?"
+→ Asks: "3 words or peg app for design direction?"
+→ [design system + flows + HTML mockups]
 ```
 
 ---
 
-## Checking investor readiness
+## Just need the tech spec
 
 ```
-/ai-startup-builder
-→ Complete the session (or load a previous scorecard)
-→ Say "investor check"
-→ Get readiness score /50 across 5 dimensions
-→ Top 3 gaps to close before raising
+/package
+→ Loads prior files if present
+→ Asks for missing context inline
+→ [tech-spec.md + AI-TECH-LEAD.md + linear-board + pitch deck]
 ```
 
 ---
 
-## Full founder OS flow (with ai-tech-lead)
+## Check investor readiness (any stage)
 
 ```
-ai-startup-builder session (~1 hour)
-  → idea-scorecard.md
-  → project-plan.md
-  → design-system.md + user-flows.md + mockups/
-  → tech-spec.md
-  → AI-TECH-LEAD.md
+/investor-check
+→ [with no artifacts: asks "where are you?"]
+→ [with artifacts: loads and assesses]
+→ Score /50 + top 3 gaps
+```
 
+---
+
+## Full founder OS — ai-startup-builder → ai-tech-lead
+
+```
+# BUSINESS BRAIN (ai-startup-builder)
+/refine   →  refined idea
+/score    →  idea-scorecard.md
+/plan     →  project-plan.md
+/mockup   →  design-system.md + user-flows.md + mockups/
+/package  →  tech-spec.md + AI-TECH-LEAD.md + linear-board.md
+
+# HANDOFF
 git init [project-name]
 cp AI-TECH-LEAD.md tech-spec.md [project-name]/
-cp -r design/ [project-name]/
+cp -r mockups/ design-system.md user-flows.md user-personas.md [project-name]/
 cd [project-name]
 
-ai-tech-lead session
-  /strategy   → STRATEGY.md (GO or STOP)
-  /design     → DESIGN.md
-  /roadmap    → ROADMAP.md + dev brief
-  /blueprint  → specs/[feature].md
-  /forge      → committed code
-  /guard      → code review scorecard
-  /launch     → GO or NO-GO
+# TECHNICAL BRAIN (ai-tech-lead)
+/strategy   →  STRATEGY.md (GO or STOP)
+/design     →  DESIGN.md
+/roadmap    →  ROADMAP.md + dev brief
+/blueprint  →  specs/[feature].md
+/forge      →  committed code
+/guard      →  code review scorecard
+/launch     →  GO or NO-GO
 ```

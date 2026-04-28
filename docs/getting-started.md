@@ -1,7 +1,6 @@
 # Getting Started
 
-ai-startup-builder takes you from raw idea to a complete project package in about an hour.
-No coding required. No prior startup experience required.
+ai-startup-builder gives you 6 standalone skills. Run them in order for the full flow, or jump to any skill directly — each one reads prior artifacts and asks inline for what's missing.
 
 ---
 
@@ -13,103 +12,137 @@ cd ai-startup-builder
 ./setup.sh
 ```
 
-Then open Claude Code and run:
+Then run any skill:
 
 ```
-/ai-startup-builder
+/refine
+/score
+/plan
+/mockup
+/package
+/investor-check
 ```
-
-OWNER INTAKE starts automatically.
 
 ---
 
-## Your first session
+## The skills
 
-### Step 1 — Share your idea
+| Skill | When to use |
+|-------|------------|
+| `/refine` | "I have a rough idea but it's vague" |
+| `/score` | "Is this worth building?" |
+| `/plan` | "What should I build first?" |
+| `/mockup` | "What should it look like?" |
+| `/package` | "Give me everything the developer needs" |
+| `/investor-check` | "Am I ready to raise?" |
 
-The first prompt is just:
+---
 
-```
-What's your idea?
-```
+## Your first run (standard flow)
 
-One sentence is fine. It will ask follow-up questions to sharpen it.
-
-```
-My idea: a tool that automatically categorizes freelancer expenses
-         from bank statement PDFs and generates quarterly tax summaries
-```
-
-### Step 2 — Refine the idea
-
-It will ask one sharp question at a time to nail down:
-- Who specifically you're building for
-- What the real problem is (not the feature)
-- Why this, why now, why you
-
-Answer honestly. This is where weak assumptions get caught — before the build.
-
-### Step 3 — Answer Owner Intake
-
-Once the idea is specific enough to score, it asks 5 context questions all at once:
+### 1. Refine
 
 ```
-1. STACK       → preferred tech stack, or "suggest"
-2. DESIGN      → 3 words or a peg app (e.g. "clean, minimal, Linear")
-3. RULES       → non-negotiables (e.g. mobile-first, no subscriptions)
-4. AUDIENCE    → who you're building for, one sentence
-5. CONSTRAINTS → timeline, budget, solo, specific market or country
+/refine
 ```
 
-After your reply, it outputs SESSION CONTEXT and moves to Phase 1.
+Answers: "What's your idea?"
 
-### Step 4 — Go through the phases
+It asks one sharp question at a time to nail the target user, the real problem, and the mechanism. Stops when the idea is specific enough to score.
 
-| Phase | Time | What to do |
-|-------|------|-----------|
-| Phase 1 — Challenge | ~15 min | Read the scorecard. Approve, pivot, or kill at Gate 1. |
-| Phase 2 — Plan | ~10 min | Review the roadmap and MVP scope. Approve at Gate 2. |
-| Phase 3 — Design | ~20 min | Review personas, flows, and mockups. Approve at Gate 3. |
-| Phase 4 — Build Package | ~15 min | Receive all handoff files. Session complete. |
+### 2. Score
 
-### Step 4 — Save the outputs
+```
+/score
+```
 
-All files go in `projects/[your-project-name]/`. Copy them to your project repo.
+If `idea-scorecard.md` doesn't exist, it asks for the idea.
+If it does, it loads it and you can re-score or continue.
+
+Runs a business framework, scores 7 dimensions /100, delivers a verdict. If score < 61, pivot suggestions are auto-generated.
+
+**Modes:**
+- Say `roast me` → brutal no-filter feedback + top 3 fixes
+- Say `pivot` → 3 alternative directions, each rough-scored
+
+### 3. Plan
+
+```
+/plan
+```
+
+Reads `idea-scorecard.md`. Challenges the feature scope, selects a roadmap pattern, defines milestones, GTM, and pricing. Saves `project-plan.md`.
+
+### 4. Mockup
+
+```
+/mockup
+```
+
+Reads `project-plan.md`. Asks for design taste if not in context. Produces user personas, design system, user flows, and 3-5 HTML mockups. Token-heavy — flags before generating.
+
+### 5. Package
+
+```
+/package
+```
+
+Reads all prior files. Produces:
+- `tech-spec.md`
+- `AI-TECH-LEAD.md` ← drop into project repo
+- `linear-board.md`
+- `pitch-deck-outline.md`
+
+Token-heavy — flags before generating.
+
+---
+
+## Skipping to a phase
+
+You don't have to run all skills in order. Each one asks inline for what it needs.
+
+```
+/score
+# No idea-scorecard.md found
+# → "What's your idea?"
+# → [you give the idea]
+# → [scores it directly]
+```
+
+```
+/plan
+# No idea-scorecard.md found
+# → "What's the idea and score from /score?
+#    (or tell me the idea and I'll plan without a score)"
+```
 
 ---
 
 ## Reading the scorecard
 
-The scorecard scores your idea /100 across 7 dimensions. Understand the verdict:
-
-- **🔴 KILL IT (0–40)** — Structural problems. Execution won't fix them. Stop or pivot.
-- **🟡 PIVOT IT (41–60)** — Core insight is good, the angle is wrong. Pivot suggestions are provided.
-- **🟢 BUILD IT (61–80)** — Solid. Execute well and you have a real shot.
-- **⭐ BET ON IT (81–100)** — Strong signal. Move fast.
-
-A KILL or PIVOT does not end the session — it starts a pivot conversation.
+- 🔴 **KILL IT (0–40)** — Structural problems. Stop or pivot.
+- 🟡 **PIVOT IT (41–60)** — Core insight good, angle is wrong. Pivots auto-generated.
+- 🟢 **BUILD IT (61–80)** — Solid. Execute well.
+- ⭐ **BET ON IT (81–100)** — Strong signal. Move fast.
 
 ---
 
 ## Handing off to ai-tech-lead
 
-At the end of Phase 4, you have `AI-TECH-LEAD.md` pre-filled and ready. Drop it into your project repo:
+After `/package`:
 
 ```bash
 git init [project-name]
-cp AI-TECH-LEAD.md [project-name]/
-cp tech-spec.md [project-name]/
-cp -r design/ [project-name]/
+cp AI-TECH-LEAD.md tech-spec.md [project-name]/
+cp -r mockups/ design-system.md user-flows.md user-personas.md [project-name]/
 cd [project-name]
 claude   # with ai-tech-lead loaded
 /strategy
 ```
 
-She reads the files and outputs `STRATEGY.md` — GO or STOP.
-
 ---
 
 ## Next
 
-- [Workflows](workflows.md) — full session walkthroughs
-- [Customization](customization.md) — tune for your context
+- [Workflows](workflows.md) — common session patterns
+- [Customization](customization.md) — tune scoring, frameworks, and defaults
