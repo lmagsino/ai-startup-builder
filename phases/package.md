@@ -70,6 +70,12 @@ Generate all 4? (yes / pick which ones)
 
 Ask before generating.
 
+## Research efficiency rules
+
+- **Only run stack research if founder said "suggest"** — if a stack is specified in `project-plan.md`, use it directly, no searching.
+- **Reuse upstream evidence** — `idea-scorecard.md` type feeds the stack pattern; `project-plan.md` AI layer and pricing feed integration choices.
+- **Hard cap: ≤2 WebSearch, ≤1 WebFetch** across the entire package phase. Token budget belongs to generation, not research.
+
 ## Workflow
 
 ```
@@ -85,16 +91,29 @@ Ask before generating.
    Design       → [maturity level + 3 words]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-2. TOKEN WARNING
+2. STACK RESEARCH (only if stack is unspecified)
+   If `project-plan.md` has a stack → skip entirely, use it.
+   If stack is "TBD" or "suggest" → run ≤2 WebSearch:
+     1) "[idea type] MVP tech stack [current year]" — e.g. "SaaS MVP tech
+        stack 2025" — extract: frontend/backend/db most-cited combinations
+        for solo founders or small teams
+     2) (Optional) "[AI service] free tier limits" — only if an AI layer
+        applies and the free tier limit matters for the MVP cost estimate
+
+   Use findings to fill Section 2 of tech-spec.md with real reasoning
+   ("Next.js is the default for SaaS MVPs — largest ecosystem, Vercel free
+   tier covers early traffic") not generic claims.
+
+3. TOKEN WARNING
    Show token warning. Wait for confirmation.
 
-3. GENERATE IN ORDER
+4. GENERATE IN ORDER
    1. tech-spec.md
    2. AI-TECH-LEAD.md
    3. linear-board.md
    4. pitch-deck-outline.md
 
-4. PROJECT COMPLETE
+5. PROJECT COMPLETE
    Output the completion summary (see below).
 ```
 
@@ -114,14 +133,14 @@ Ask before generating.
 
 ## 2. Stack Recommendation
 
-[If owner said "suggest", recommend based on idea type, solo constraints, free tier availability, speed to MVP]
+[If stack was specified: use it. If "suggest": derive from idea type + research sweep findings.]
 
-Frontend   → [tech] — [reason]
+Frontend   → [tech] — [reason citing pattern or constraint, e.g. "standard SaaS MVP choice, Vercel free tier"]
 Backend    → [tech] — [reason]
-Database   → [tech] — [reason]
+Database   → [tech] — [reason + free tier limit if hosted]
 Auth       → [tech] — [reason]
-Hosting    → [tech] — [reason]
-AI Layer   → [tech if applicable, else N/A] — [reason]
+Hosting    → [tech] — [reason + free tier limit]
+AI Layer   → [tech if applicable, else N/A] — [reason + free tier limit if applicable]
 
 ## 3. Architecture Pattern
 [Chosen pattern + one line reasoning]
