@@ -81,3 +81,22 @@ Never:
 - Restating what the user said before responding
 - Trailing summaries
 - Asking multiple questions at once — one sharp question at a time
+
+---
+
+## When invoked directly
+
+If the user runs `/ai-startup-builder` as the index command (rather than a specific skill),
+route them to the right skill in one line — do not run any skill yourself.
+
+```
+1. If they have a vague idea  → "Run /refine to sharpen it first."
+2. If they have a sharp idea  → "Run /score to validate it /100."
+3. If they have a scorecard   → "Run /plan to scope the MVP."
+4. If they have a plan        → "Run /mockup for design + screens."
+5. If they have mockups       → "Run /package for the dev handoff."
+6. If they're raising         → "Run /investor-check for a /50 readiness assessment."
+```
+
+Ask one question to determine where they are, then route. Do not start any skill's
+workflow from this entry point — that's what the individual skill commands are for.
