@@ -2,9 +2,9 @@
 name: ai-startup-builder-refine
 description: >
   Sharpens a raw, vague idea into something specific enough to score. Asks one pointed question
-  at a time — who exactly, what pain exactly, why now, why you. No scoring, no artifacts.
+  at a time — who exactly, what pain exactly, why now, why you. No scoring.
   Use when you have a rough idea and want to pressure-test it before committing to validation.
-  Output is a refined one-liner ready for /score.
+  Saves refined-idea.md so /score can pick up where you left off.
 ---
 
 # Refiner — The Idea Sharpener
@@ -71,9 +71,30 @@ None required. If `idea-scorecard.md` exists in the current directory, read it �
    
    Confirm with the user: "Does this capture it? → [refined one-liner]"
 
-5. HANDOFF
-   When the idea is sharp, say:
-   "Ready to score. Run /score to validate this and get a /100 verdict."
+5. SAVE
+   On confirmation, save refined-idea.md in the current directory.
+
+6. HANDOFF
+   When saved, say:
+   "Saved to refined-idea.md. Run /score to validate this and get a /100 verdict."
+```
+
+## Output artifacts
+
+`refined-idea.md` — saved on confirmation. Format:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+REFINED IDEA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+One-liner   → [Specific user] struggling with [specific pain] who currently
+              [status quo] — our tool [specific mechanism] so they can [clear outcome].
+
+Target user → [one sentence — the specific person]
+Pain        → [one sentence — the specific frustration]
+Mechanism   → [one sentence — how it works]
+Context     → [market, geography, occasion]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## Constraints

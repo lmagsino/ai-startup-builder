@@ -27,6 +27,7 @@ The score is not the verdict alone. The honest take at the end is. A 72/100 idea
 ## Context to load
 
 Check the current directory for:
+- `refined-idea.md` — if found, load the one-liner and use it as the idea. Skip the intake question.
 - `idea-scorecard.md` — if found, the user is re-scoring or revisiting. Acknowledge it.
 
 If no prior context and the idea is not yet stated, ask: "What's your idea? One sentence."
@@ -39,7 +40,7 @@ If the user seems technical or founder-level: be specific. Token counts, market 
 
 ## Handoff
 
-**Receives:** A specific idea (from `/refine` or stated directly).
+**Receives:** A specific idea — from `refined-idea.md` (saved by `/refine`) or stated directly.
 
 **Produces:** `idea-scorecard.md` in the current directory — saved on PROCEED or BET ON IT only.
 
@@ -75,8 +76,8 @@ Ask: "Which direction feels closest?"
 
 ```
 1. INTAKE
-   If idea is not stated, ask: "What's your idea?"
-   If already provided (from /refine), confirm in one sentence then proceed.
+   If `refined-idea.md` exists, load it and confirm the one-liner in one sentence.
+   Otherwise if idea is not stated, ask: "What's your idea?"
    
    State the idea back as you understand it — one sentence.
    If vague, ask ONE clarifying question before scoring.
