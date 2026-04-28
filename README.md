@@ -11,12 +11,19 @@ Solo founders get a co-founder who challenges ideas before they get built, then 
 > **Why not just use Claude?** ai-startup-builder is a structured workflow with scoring frameworks, hard phase gates, and artifact chains — not a general-purpose chatbot. It challenges your idea before generating anything, scores it before planning, and blocks the next phase until the current one is approved.
 
 ```
-ai-startup-builder: What's your idea?
+ai-startup-builder: What's your idea? Even rough is fine — I'll do the research.
 
 You: AI tool for restaurant reservations
 
-ai-startup-builder: OpenTable, Resy, and Yelp have this covered.
-                    What does AI unlock that their booking widget can't?
+ai-startup-builder: Pulling what's already out there. One sec.
+                    [searches: OpenTable pricing, Resy market share,
+                     restaurant tech reddit, Yelp reservation API…]
+
+                    OpenTable owns 60k+ restaurants. Resy was acquired by Amex.
+                    The real complaint on r/restaurantowners is no-show fees and
+                    walk-in juggling — not booking itself. Three angles emerge —
+                    no-show prevention, dynamic walk-in routing, or post-meal
+                    review automation. Which feels closest?
 ```
 
 <p align="center">
@@ -54,7 +61,7 @@ Each skill is a standalone command. Run them in order or jump to any phase — e
 
 | Skill | What it does | Produces |
 |-------|-------------|---------|
-| `/refine` | Sharpen a vague idea — one sharp question at a time | Refined one-liner |
+| `/refine` | Research-enabled discovery — pulls market data, competitors, real user complaints, then sharpens against evidence | `refined-idea.md` (with citations) |
 | `/score` | Validate + score /100 across 7 dimensions — verdict + risks | `idea-scorecard.md` |
 | `/plan` | MVP roadmap — pattern, scope, milestones, GTM, pricing | `project-plan.md` |
 | `/mockup` | Personas + design system + flows + HTML mockups | `design-system.md`, `user-flows.md`, `mockups/` |
@@ -105,9 +112,11 @@ Every idea scored /100 across 7 weighted dimensions:
 
 ## How it works
 
+**Research before refine.** `/refine` pulls market data, competitor pricing, real user complaints, and why-now signals via web search before asking the founder anything. The questions left for the founder are the ones that actually need their judgment — not facts they couldn't know.
+
 **Challenges first.** Every skill opens with a challenge — never with enthusiasm.
 
-**Artifacts chain.** `/refine` sharpens → `/score` saves `idea-scorecard.md` → `/plan` reads it → `/mockup` reads plan → `/package` reads everything. Each step builds on the last.
+**Artifacts chain.** `/refine` saves `refined-idea.md` → `/score` reads it and saves `idea-scorecard.md` → `/plan` reads that → `/mockup` reads plan → `/package` reads everything. Each step builds on the last.
 
 **Independent entry.** Jump to any skill at any time. If prior files don't exist, the skill asks inline for the minimum needed. No ceremony.
 

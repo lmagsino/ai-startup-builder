@@ -31,7 +31,7 @@ Run each directly. Each one reads prior artifacts from the current directory if 
 
 | Skill | What it does | Produces |
 |-------|-------------|---------|
-| `/refine` | Sharpen a vague idea — one sharp question at a time | Refined one-liner |
+| `/refine` | Research + sharpen — pulls market data and real pain, then sharpens against evidence | `refined-idea.md` (with citations) |
 | `/score` | Validate + score /100 — framework, verdict, risks | `idea-scorecard.md` |
 | `/plan` | MVP roadmap — pattern, scope, milestones, GTM, pricing | `project-plan.md` |
 | `/mockup` | Personas + design system + flows + HTML mockups | `design-system.md`, `user-flows.md`, `mockups/` |

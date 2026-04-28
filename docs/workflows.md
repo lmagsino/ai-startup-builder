@@ -7,14 +7,14 @@ Common session patterns.
 ## Full flow — idea to handoff (~1 hour)
 
 ```
-/refine          → sharpen vague idea
+/refine          → research + sharpen (pulls market data, competitors, real pain)
 /score           → validate + score /100
 /plan            → MVP roadmap
 /mockup          → design + HTML screens
 /package         → dev handoff package
 ```
 
-Each step saves a file. Each next step reads it automatically.
+Each step saves a file. Each next step reads it automatically. `/refine` saves `refined-idea.md` with cited research findings — `/score`'s pre-mortem then attacks the killer assumption flagged there.
 
 ---
 

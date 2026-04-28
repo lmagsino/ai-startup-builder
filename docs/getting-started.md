@@ -29,7 +29,7 @@ Then run any skill:
 
 | Skill | When to use |
 |-------|------------|
-| `/refine` | "I have a rough idea but it's vague" |
+| `/refine` | "I have a rough idea" or "I don't know what to build yet" — pulls market data + sharpens against evidence |
 | `/score` | "Is this worth building?" |
 | `/plan` | "What should I build first?" |
 | `/mockup` | "What should it look like?" |
@@ -46,9 +46,11 @@ Then run any skill:
 /refine
 ```
 
-Answers: "What's your idea?"
+Answers: "What's your idea? Even rough is fine — I'll do the research."
 
-It asks one sharp question at a time to nail the target user, the real problem, and the mechanism. Stops when the idea is specific enough to score.
+Diagnoses your founder archetype (insider pain, category-only, tool-first, pattern clone, lost, or pre-baked) and runs the right intervention. For most archetypes, it pulls real research first — competitors with prices, market sizing, user complaints from forums, why-now signals, named communities for your first 100 users — then asks only the questions that need *your* judgment. Catches anti-patterns by name. Saves `refined-idea.md` with cited sources and a flagged killer assumption.
+
+Requires web search. Falls back to pure Q&A if unavailable.
 
 ### 2. Score
 

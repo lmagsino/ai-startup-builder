@@ -33,7 +33,7 @@ create_skill_wrappers() {
   local core_dir="$2"
 
   declare -A DESCRIPTIONS=(
-    ["refine"]="Sharpens a raw, vague idea into something specific enough to score. Asks one pointed question at a time — who exactly, what pain exactly, why now, why you. No scoring. Output is a refined one-liner ready for /score."
+    ["refine"]="Research-enabled idea discovery. Diagnoses founder archetype, pulls real market data (competitors, pricing, user complaints, why-now signals, communities) via web search, then sharpens the idea against evidence. Catches anti-patterns by name, runs live pressure tests, and saves refined-idea.md with cited findings ready for /score."
     ["score"]="Validates and scores a startup idea /100 across 7 weighted dimensions. Classifies the idea, applies a business framework (Lean Canvas, JTBD, 7 Powers, Blue Ocean), runs a Pre-Mortem, delivers a verdict. Trigger: 'roast me' for brutal mode, 'pivot' for alternatives. Produces idea-scorecard.md."
     ["plan"]="Builds the MVP roadmap. Selects a roadmap pattern, filters features ruthlessly, defines milestones, GTM strategy, and pricing. Covers MVP → V2 → Future Vision. Produces project-plan.md."
     ["mockup"]="Designs the product experience. Builds user personas, challenges the design peg, produces a design system, maps core user flows, and generates 3-5 key screens as clean HTML. Outputs consumed by ai-tech-lead /design. Token-heavy."
