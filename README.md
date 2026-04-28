@@ -11,11 +11,12 @@ Solo founders get a co-founder who challenges ideas before they get built, then 
 > **Why not just use Claude?** ai-startup-builder is a structured workflow with scoring frameworks, hard phase gates, and artifact chains — not a general-purpose chatbot. It scores your idea before generating anything, blocks Phase 2 if Phase 1 fails, and says KILL when your idea has structural problems execution won't fix.
 
 ```
+ai-startup-builder: What's your idea?
+
 You: AI tool for restaurant reservations
 
 ai-startup-builder: OpenTable, Resy, and Yelp have this covered.
                     What does AI unlock that their booking widget can't?
-                    Who specifically are you building for — diners or restaurants?
 ```
 
 <p align="center">
@@ -63,8 +64,10 @@ projects/[name]/
 
 ## Phases
 
-| Phase | What happens | Output |
-|-------|-------------|--------|
+| Step | What happens | Output |
+|------|-------------|--------|
+| **Idea** | Share your idea — one sentence is enough | — |
+| **Refinement** | Sharp questions to nail the user, problem, and angle | Sharpened idea |
 | **Owner Intake** | Stack, design taste, rules, audience, constraints — all 5 at once | SESSION CONTEXT |
 | **Phase 1 — Challenge** | Classify → framework → score /100 → verdict | `idea-scorecard.md` |
 | **Phase 2 — Plan** | Roadmap pattern → MVP filter → milestones → GTM → pricing | `project-plan.md` |

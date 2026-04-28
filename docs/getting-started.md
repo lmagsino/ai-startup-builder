@@ -25,9 +25,33 @@ OWNER INTAKE starts automatically.
 
 ## Your first session
 
-### Step 1 — Answer Owner Intake
+### Step 1 — Share your idea
 
-Five questions, all in one reply:
+The first prompt is just:
+
+```
+What's your idea?
+```
+
+One sentence is fine. It will ask follow-up questions to sharpen it.
+
+```
+My idea: a tool that automatically categorizes freelancer expenses
+         from bank statement PDFs and generates quarterly tax summaries
+```
+
+### Step 2 — Refine the idea
+
+It will ask one sharp question at a time to nail down:
+- Who specifically you're building for
+- What the real problem is (not the feature)
+- Why this, why now, why you
+
+Answer honestly. This is where weak assumptions get caught — before the build.
+
+### Step 3 — Answer Owner Intake
+
+Once the idea is specific enough to score, it asks 5 context questions all at once:
 
 ```
 1. STACK       → preferred tech stack, or "suggest"
@@ -37,18 +61,9 @@ Five questions, all in one reply:
 5. CONSTRAINTS → timeline, budget, solo, specific market or country
 ```
 
-After your reply, it outputs SESSION CONTEXT and asks for your idea.
+After your reply, it outputs SESSION CONTEXT and moves to Phase 1.
 
-### Step 2 — Share your idea
-
-One sentence is fine. More context is better.
-
-```
-My idea: a tool that automatically categorizes freelancer expenses
-         from bank statement PDFs and generates quarterly tax summaries
-```
-
-### Step 3 — Go through the phases
+### Step 4 — Go through the phases
 
 | Phase | Time | What to do |
 |-------|------|-----------|
