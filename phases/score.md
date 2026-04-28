@@ -26,8 +26,16 @@ The score is not the verdict alone. The honest take at the end is. A 72/100 idea
 
 ## Cost
 
-Token: low — framework analysis + one structured artifact
+Token: low–medium — framework analysis, one structured artifact, light research sweep
 Time: ~10–15 min
+Reuses `refined-idea.md` research when present (no redundant searches). When absent, runs ≤4 WebSearch + ≤1 WebFetch to ground the three evidence-heavy dimensions.
+
+## Research efficiency rules
+
+- **Reuse before researching.** If `refined-idea.md` exists, its competitors, pricing, why-now, and communities are already cited. Use them directly. Do NOT re-search.
+- **WebSearch first, WebFetch only when forced.** Snippets answer most questions. Fetch only when a single page (e.g. a pricing page) is the canonical source.
+- **Tight extraction prompts on WebFetch.** Always state exactly what to extract in one sentence. Never "summarize the page".
+- **Hard caps when researching from scratch:** ≤4 WebSearch, ≤1 WebFetch. If no web tools available, mark affected dimensions `[low]` confidence and proceed.
 
 ## Context to load
 
@@ -95,6 +103,48 @@ Ask: "Which direction feels closest?"
    - Consumer    → B2C, habits, social, entertainment
    - B2B         → Enterprise, sales-led, long buying cycle
    - AI Product  → LLM-powered, automation, generative
+
+2a. RESEARCH SWEEP (token-efficient)
+   Goal: ground Market Size, Competition Density, and Monetization Clarity in
+   real evidence. Most weight in the scorecard sits on these three (50%
+   combined) — guessing them is the single biggest source of bad scores.
+
+   IF `refined-idea.md` EXISTS:
+     Reuse it. Pull competitors, pricing, why-now signals, communities
+     directly. Run ZERO new searches unless a specific dimension has no
+     supporting evidence — then ≤2 targeted WebSearch queries to fill the gap.
+
+   IF NO `refined-idea.md`:
+     Run a focused sweep, capped at ≤4 WebSearch + ≤1 WebFetch:
+       1) WebSearch: "[problem space] market size" or "[category] TAM"
+          → market signal (proxy data is fine — comparable company revenue,
+          category spend, vertical headcount × ARPU estimate)
+       2) WebSearch: "[problem space] [tool|software|app]"
+          → identify top 3 incumbents/competitors by name
+       3) WebSearch: "[top competitor] pricing" or "[category] pricing"
+          → real pricing anchors for Monetization Clarity
+       4) (Optional, only if 1–3 left a critical gap) one more search OR
+          one WebFetch on a competitor pricing page with extraction prompt
+          like: "Plans and prices only. Bullet list. Skip marketing copy."
+
+     If web tools are unavailable, skip the sweep, tag affected dimensions
+     `[low]` confidence, and say so in HONEST TAKE.
+
+   Capture findings as 3–6 bullet evidence notes — these feed the Evidence
+   lines under each scored dimension. Do not paste raw search results.
+
+2b. AI LEVERAGE CHECK
+   One question, internal (don't prompt the user yet):
+   "Is this idea using AI as the core unlock, AI as a feature, or not at all?"
+   - Core unlock   → product can't exist or is 10x harder without AI
+   - Feature       → AI improves it but isn't the main mechanism
+   - Not present   → no AI in the current shape
+
+   If the idea is "not present" or "feature" but the problem has obvious AI
+   leverage (unstructured data, repetitive judgment, language tasks, document
+   parsing, personalization at scale), flag it for the HONEST TAKE later.
+   Don't force AI where it doesn't fit — but don't miss it where it would
+   change the score.
 
 3. APPLY FRAMEWORK
    Pick ONE primary framework based on idea type.
@@ -193,13 +243,16 @@ Type          → [saas/marketplace/consumer/b2b/ai-product]
 Framework     → [which one + why in one line]
 
 SCORES
-Market Size            [X]/10  (15%)  → [X.X]
-Competition Density    [X]/10  (15%)  → [X.X]
-Founder-Market Fit     [X]/10  (15%)  → [X.X]
-Technical Feasibility  [X]/10  (10%)  → [X.X]
-Monetization Clarity   [X]/10  (20%)  → [X.X]
-Time to First Revenue  [X]/10  (15%)  → [X.X]
-Unfair Advantage       [X]/10  (10%)  → [X.X]
+Market Size            [X]/10  (15%)  → [X.X]   conf: [high/med/low]
+  Evidence: [one line — TAM proxy, comparable revenue, headcount × ARPU, etc.]
+Competition Density    [X]/10  (15%)  → [X.X]   conf: [high/med/low]
+  Evidence: [top 3 competitors named + how crowded the gap is]
+Founder-Market Fit     [X]/10  (15%)  → [X.X]   conf: [high/med/low]
+Technical Feasibility  [X]/10  (10%)  → [X.X]   conf: [high/med/low]
+Monetization Clarity   [X]/10  (20%)  → [X.X]   conf: [high/med/low]
+  Evidence: [comparable pricing anchor — real number from a real product]
+Time to First Revenue  [X]/10  (15%)  → [X.X]   conf: [high/med/low]
+Unfair Advantage       [X]/10  (10%)  → [X.X]   conf: [high/med/low]
 ──────────────────────────────────────────────
 TOTAL                                 [XX]/100
 
@@ -228,8 +281,16 @@ TOP 3 OPPORTUNITIES
 INVESTOR READINESS   [X]/10
 [One line on what's missing]
 
+AI LEVERAGE          [core unlock / feature / not present]
+[One line. If "not present" or "feature" but the problem has obvious AI
+leverage, name the specific angle that would change the shape — e.g.
+"unstructured intake forms = LLM extraction unlock" — not a generic
+"add AI". If AI doesn't fit, say so plainly.]
+
 HONEST TAKE
-[2-3 sentences of direct, unfiltered feedback]
+[2-3 sentences of direct, unfiltered feedback. If AI leverage was flagged
+above, address it here: would the AI angle improve the score, and by how
+much, or is it a distraction?]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -248,6 +309,10 @@ PIVOT SUGGESTIONS
 - **Never produce a GO without identifying at least one hard risk**
 - **ROAST MODE:** do not soften under pushback — if the user argues, engage the argument
 - **Self-rate confidence at the bottom of the scorecard:** `Confidence: low / medium / high`
+- **Every Market/Competition/Monetization score must carry an Evidence: line** — either citing `refined-idea.md` or the research sweep. If neither produced data, tag `[low]` confidence and say so in HONEST TAKE.
+- **Never invent competitors or pricing** — if research turned up nothing, write "Evidence: none — assumption only" and lower confidence accordingly.
+- **Never force AI where it doesn't fit** — but never miss it where it does. The AI LEVERAGE line is mandatory.
+- **Naming research is `/plan`'s job, not `/score`'s** — don't validate names here.
 
 ## Examples
 
