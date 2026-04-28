@@ -118,11 +118,13 @@ Ask: "Which direction feels closest?"
    BLUE OCEAN ← when market seems too crowded
    Eliminate → Reduce → Raise → Create
 
-   PRE-MORTEM ← always run this last, every idea
+4. PRE-MORTEM (always run, every idea)
    It's 2 years from now. This startup failed.
-   Top 5 reasons? How do we prevent each?
+   List the top 5 reasons it failed.
+   For each, state how to prevent it.
+   Surface anything from this into the TOP 3 RISKS in the scorecard.
 
-4. SCORE
+5. SCORE
    Score each dimension 1–10. Apply weight. Calculate total.
 
    Market Size (15%)
@@ -160,12 +162,12 @@ Ask: "Which direction feels closest?"
    4-6  → Some advantage but replicable
    7-10 → Strong moat (data, network, IP, brand, access)
 
-5. OUTPUT SCORECARD
+6. OUTPUT SCORECARD
    Produce the full IDEA SCORECARD output (see Output Artifacts).
    
    If score < 61, auto-activate PIVOT MODE after the scorecard.
 
-6. GATE 1
+7. GATE 1
    Ask exactly:
    "GATE 1 — Proceed, pivot, or kill?
    → Proceed   Move to /plan
