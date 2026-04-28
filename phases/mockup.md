@@ -30,13 +30,13 @@ Every design decision is challenged against design maturity level: does this nee
 
 Token: high — generates HTML mockups (~3,000–6,000 tokens)
 Time: ~20 min
-Warns before generating mockups (see Token warning section).
+Warns before generating mockups. Competitor UI research is ≤2 WebSearch, reuses idea-scorecard.md competitor list when present.
 
 ## Context to load
 
 Check the current directory for:
 - `project-plan.md` — load MVP features, target audience, problem/solution, **BRAND section (name, domain, tagline, positioning)**
-- `idea-scorecard.md` — load idea type, one-liner
+- `idea-scorecard.md` — load idea type, one-liner, **Competition Density Evidence (competitor names)**
 
 If neither found, ask:
 "What are the 3-5 MVP features and who is the primary user? What's the product called?
@@ -99,7 +99,28 @@ Ask before generating.
    Keep personas grounded in the target audience from project-plan.md.
    Do not invent personas outside the stated audience.
 
-3. CHALLENGE THE PEG
+3. COMPETITOR UI SCAN (token-efficient)
+   Goal: understand the visual landscape before choosing a design direction.
+   Avoids designing something that looks identical to the market leader, or
+   that misses a strong convention users already expect.
+
+   Pull the top 2–3 competitors from `idea-scorecard.md` Competition
+   Density Evidence. Then run ≤2 WebSearch queries:
+     1) "[competitor 1] UI" or "[competitor 1] interface screenshot"
+     2) "[competitor 2] design" or "[category] app design"
+
+   Extract: dominant color palette, nav pattern (sidebar/topbar/tab),
+   density level (minimal vs. data-heavy), any distinctive design moves.
+   Do not WebFetch — snippet descriptions are enough at this stage.
+
+   Output a 3-line landscape note before the peg challenge:
+   "Landscape: [competitor 1] → [pattern]. [competitor 2] → [pattern].
+    Differentiator opportunity: [what none of them do well visually]."
+
+   If no competitors identified upstream or web tools unavailable: skip,
+   proceed to peg challenge.
+
+4. CHALLENGE THE PEG
    Before designing, challenge the design peg:
    - Why it works: what makes the peg app good
    - What to copy ✅: specific pattern + reason it applies
@@ -111,7 +132,7 @@ Ask before generating.
    🥈 V2 Design     → polished, branded. After first paying users.
    🥇 Scale Design  → world-class, distinctive. After product-market fit.
 
-4. DESIGN SYSTEM
+5. DESIGN SYSTEM
    Produce the full design system (see Output Artifacts).
    
    If the user said "suggest" for design taste, derive from:
@@ -119,7 +140,7 @@ Ask before generating.
    - Target audience (technical users → minimal, general users → more guided)
    - Recommended maturity level
 
-5. USER FLOWS (3-5 MVP flows only)
+6. USER FLOWS (3-5 MVP flows only)
    For each flow:
    - Entry point (where the user starts)
    - Steps (numbered, concrete)
@@ -130,12 +151,12 @@ Ask before generating.
    Prioritize flows that directly test the core value prop.
    Do not map flows for features outside MVP scope.
 
-6. TOKEN WARNING
+7. TOKEN WARNING
    Before generating HTML:
    "Ready to generate [X] screens. This will use ~[estimate] tokens.
    Screens: [list]. Proceed?"
 
-7. HTML MOCKUPS
+8. HTML MOCKUPS
    Generate clean HTML for 3-5 screens. Priority order:
    1. Landing / Hero — the conversion moment
    2. Core feature — the main value prop in action
@@ -151,7 +172,7 @@ Ask before generating.
    - Representative content — not lorem ipsum, but real representative copy
    - Name screens clearly — ai-tech-lead /design reads these by name
 
-8. GATE 3
+9. GATE 3
    Ask exactly:
    "GATE 3 — Does the design direction look right?
    → Approve   Move to /package
