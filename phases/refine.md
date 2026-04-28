@@ -107,6 +107,17 @@ Check the current directory for:
    call it out by NAME in one line, then research the space anyway — the founder
    may still want to pursue it, just with the right framing.
 
+4a. REGULATORY TRIGGER CHECK
+    Does the idea touch any of: health, finance, education, employment, food/drugs,
+    transport, children, weapons, alcohol, gambling, immigration, legal services,
+    housing, insurance?
+
+    If yes → add ONE regulatory query to step 5:
+      "[domain] regulatory requirements [country/region] 2024 2025"
+
+    Surface findings under WHY NOW or as a HARD CONSTRAINT line in the briefing.
+    Regulatory burden is often the killer assumption — flag it early, not at /score.
+
 5. RESEARCH — pull the homework
    Announce in one line: "Pulling what's already out there on this. One sec."
    Run `WebSearch` queries in parallel for:
@@ -232,42 +243,56 @@ Match input against these patterns. When matched, call out by NAME in one line �
 
 Present after research. Format:
 
+Every research finding carries a confidence tag — `[high]`, `[med]`, or `[low]`:
+- `[high]` — official source (gov stats, named publication, company filing, named pricing page)
+- `[med]` — forum/reddit thread with high engagement, multiple corroborating sources, named blog post
+- `[low]` — anonymous post, single source, or thin data — flag for the founder to verify
+
+If a critical finding is `[low]`, say so directly and recommend the founder verify before /score.
+
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 RESEARCH BRIEFING — [topic]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-MARKET
+MARKET  [high|med|low]
   ~[N] [target users] ([source]).
   Bottom-up: [count] × [ARPU benchmark] × [capture %] = $[X]M ARR ceiling.
 
-COMPETITION
+COMPETITION  [high|med|low]
   [Competitor 1] ($[X]/mo) — [positioning]
     1-star complaints: [pain] · [pain] · [pain] [source]
   [Competitor 2] ($[X]/mo) — [positioning]
     1-star complaints: [pain] · [pain] · [pain] [source]
   Gap: [what's underserved — derived from the 1-star pattern]
 
-REAL PAIN (from [forum / source])
+REAL PAIN  [high|med|low]   (from [forum / source])
   "[exact quote]" ([N] upvotes/likes) [source]
   "[exact quote]" ([N] upvotes/likes) [source]
   "[exact quote]" ([N] upvotes/likes) [source]
 
-WHY NOW
+WHY NOW  [high|med|low]
   [Specific change in last 24 months — regulatory, tech, or market]
   [Source / date]
 
-WHERE FIRST 100 COULD COME FROM
+REGULATORY  [high|med|low]   (only if domain-triggered in step 4a)
+  [Specific rule / certification / cost] [source]
+  Hard constraint? [yes / no — and why]
+
+WHERE FIRST 100 COULD COME FROM  [high|med|low]
   [Named subreddit] ([N] members)
   [Named FB group / Discord / forum]
   [Named conference / community]
 
-AI LEVERAGE (newly possible in 2024–26)
+AI LEVERAGE  [high|med|low]   (newly possible in 2024–26)
   [Specific capability + why it matters here]
   [Specific capability + why it matters here]
 
 ANTI-PATTERNS DETECTED
   [None] or [Named pattern — and the move that works]
+
+VERIFY BEFORE /score
+  [Any [low]-confidence finding the founder should sanity-check]
 
 ONE QUESTION FOR YOU
   [Direction question informed by the data]
